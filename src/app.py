@@ -87,12 +87,11 @@
 #     app.run(debug=True, host="0.0.0.0", port=5000)
 
 import logging
-
 from flask import Flask
 from flask import render_template
 from flask import request
 from flask import redirect
-from flask_wtf import CSRFProtect  #libary
+from flask_wtf import CSRFProtect  
 from flask_csp.csp import csp_header
 
 from database import db #connect to database
@@ -105,12 +104,17 @@ def create_app(): #place factory
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sleep.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    db.init_app(app) #inistialise database
-    csrf.init_app(app) #inistlise crsf
+    db.init_app(app) 
+    csrf.init_app(app) 
+
+    from routes.auth import auth_bp
+    app.register_blueprint(auth_bp)
+
     with app.app_context():
         from models import User 
         from models import SleepEntry, SleepGoal
         db.create_all()
+    
     return app
 
 app = create_app()
