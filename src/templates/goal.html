@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="h3 mb-4">Sleep Goal</h1>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+        {{ form.target_hours.label }}
+        {{ form.target_hours(class="form-control") }}
+
+        {% for error in form.target_hours.errors %}
+            <div class="text-danger small">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <button class="btn btn-primary w-100">
+        Save Goal
+    </button>
+</form>
+
+{% if goal %}
+    <div class="alert alert-info mt-3">
+        Current goal: <strong>{{ goal.target_hours }} hours</strong>
+    </div>
+{% endif %}
+{% endblock %}

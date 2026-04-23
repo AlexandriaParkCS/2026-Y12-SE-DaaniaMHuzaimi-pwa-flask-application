@@ -109,6 +109,8 @@ def create_app(): #place factory
 
     from routes.auth import auth_bp
     app.register_blueprint(auth_bp)
+    from routes.sleep import sleep_bp
+    app.register_blueprint(sleep_bp)
 
     with app.app_context():
         from models import User 

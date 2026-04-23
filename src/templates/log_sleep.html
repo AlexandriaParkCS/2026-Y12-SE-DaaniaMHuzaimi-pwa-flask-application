@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Log sleep - SleepTracker{% endblock %}
+{% block content %}
+
+<form method="POST" action="{{ url_for('sleep.log_sleep') }}" novalidate>
+    {{ form.hidden_tag() }}
+
+    <div class="row g-3">
+
+        <div class="col-6">
+            <label for="bedtime" class="form-label">
+                Bedtime <span class="text-danger">*</span>
+            </label>
+
+            {{ form.bedtime(class="form-control", id="bedtime") }}
+
+            {% if form.bedtime.errors %}
+                <div class="text-danger small">
+                    {{ form.bedtime.errors[0] }}
+                </div>
+            {% endif %}
+    </div>
+
+    <div class="col-6">
+    <label for="wake_time" class="form-label">
+        Wake Time <span class="text-danger">*</span>
+    </label>
+
+I   {{ form.wake_time(class="form-control", id="wake_time") }}
+
+    {% if form.wake_time.errors %}
+        <div class="text-danger small">
+        {{ form.wake_time.errors[0] }}
+        </div>
+    {% endif %}
+    </div>
+
+    <div class="col-6">
+        <label for="quality" class="form-label">
+            How did you sleep?
+        </label>
+
+        {{ form.quality(class="form-select", id="quality") }}
+    </div>
+
+    <div class="col-12">
+     <label for="notes" class="form-label">Notes</label>
+
+    {{ form.notes(class="form-control", id="notes", rows="3",
+        placeholder="Anything that affected your sleep ... ") }}
+
+        <div class="form-text">Max 500 characters .</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 mt-3">
+        Save entry
+    </button>
+
+</form>
+{% endblock %}
+
+
