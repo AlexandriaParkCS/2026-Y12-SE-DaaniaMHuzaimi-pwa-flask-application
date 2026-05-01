@@ -1,4 +1,5 @@
 from datetime import datetime, date, timedelta
+import requests as http_requests 
 from flask import (Blueprint, render_template, redirect, url_for, session, flash, jsonify, request)
 from models.sleep_entry import SleepEntry, SleepGoal
 from models.user import User
@@ -22,8 +23,20 @@ def dashboard():
         / len(entries), 1) if entries else 0 
     goal = SleepGoal.query.filter_by(
         user_id=user.id).first()
+    tip = None 
+    try: 
+        r = http_requests.get('https://zenquotes.io/api/random', timeout=3)
+        if r.status_code == 200:
+            data = r.json()
+            if data:
+                tip = {
+                    'quote': data[0].get('q',''),
+                    'author': data[0].get('a','')
+                }
+    except:
+        tip = None
     return render_template('dashboard.html', 
-        user=user, entries=entries, avg=avg, goal=goal)
+        user=user, entries=entries, avg=avg, goal=goal, tip=tip)
 
 
 @sleep_bp.route('/log', methods=['GET', 'POST'])
