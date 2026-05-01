@@ -145,4 +145,4 @@ app = create_app()
 def index():
     return render_template("/index.html")
 
-app.run()
+app.run(host='0.0.0.0', port=5000) #users under the same the wifi can use the webstie
