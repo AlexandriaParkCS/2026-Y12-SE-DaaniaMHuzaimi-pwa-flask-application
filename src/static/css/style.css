@@ -30,3 +30,45 @@ body {
 footer { 
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-color: #e2e8fe;
+    --bs-table-border-color: Orgba(255,255,255,0.08);
+    --bs-table-hover-bg: Orgba(255,255,255,0.04);
+}
+.table thead th {
+font-size: 0.75rem;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+color: var(--st-muted);
+font-weight: 600;
+}
+
+.danger-zone {
+border: 1px solid rgba(239, 68, 68, 0.3) !important;
+}
+
+.page-1ink {
+background-color: var(--st-card);
+border-color: var(--st-border);
+color: var(--st-muted);
+}
+
+.page-link:hover {
+background-color: rgba(255, 255, 255, 0.06);
+color: var(--st-text);
+}
+
+.page-item.active .page-link {
+background-color: var(--st-accent);
+border-color: var(--st-accent);
+color: #ffffff;
+}
+
+@media (max-width: 576px) {
+h1.h3 {font-size: 1.3rem; }
+.card-body { padding: 0.75rem; }
+.table-responsive { overflow-x: auto;}
+.stat-card .stat-value { font-size: 1.5rem; }
+}

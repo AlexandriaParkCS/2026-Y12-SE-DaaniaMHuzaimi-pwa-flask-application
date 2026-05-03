@@ -1,11 +1,63 @@
-{% extends 'layout.html' %}
+{% extends 'base.html' %}
+{% block title %}Privacy Policy - 🌙SleepTracker{% endblock %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <h1 class="display-1">Privacy Policy</h1>
-    </div>
-    <div class="row">
 
+<div class="row justify-content-center ">
+    <div class="col-md-8">
+
+        <h1 class="h3 fw-bold mb-1">✔️Privacy Policy</h1>
+        <p class="text-white small mb-4">Last updated: May 2026</p>
+
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body p-4">
+
+                <h2 class="h5 fw-semibold mb-2">What we collect</h2>
+                <p class="text-white small mb-3">When you create an account, we collect your <strong>username</strong>
+                    and
+                    <strong>email address</strong>. When you log sleep, we collect your <strong>bedtime, wake time,
+                        quality rating, </strong> and <strong>optional notes</strong>. We only collect what is necessary
+                    to provide the service.
+                </p>
+          
+                <hr>
+
+                <h2 class="h5 fw-semibold mb-2">How we store it</h2>
+                <p class="text-white small mb-3">Your password is <strong>never stored in plaintext</strong>. It is
+                    hashed
+                    using <strong>bcrypt</strong> with a unique salt before being saved. Your sleep data is stored in a
+                    local SQLite database and is never shared with third parties or sold to advertisers .</p>
+
+                <hr>
+
+                <h2 class="h5 fw-semibold mb-2">External services</h2>
+                <p class="text-white small mb-3">SleepTracker displays a daily wellness quote from <strong>ZenQuotes
+                        API</strong> (zenquotes.io). This is a read-only anonymous request - no personal data is sent to
+                        ZenQuotes. If you prefer not to load external content, the app works fully without it .</p>
+
+                <hr>
+
+                <h2 class="h5 fw-semibold mb-2">Your rights</h2>
+                <ul class="text-white small mb-3">
+                    <li class="mb-1">You can <strong>view all your data</strong> on the History page at any time .</li>
+                    <li class="mb-1">You can <strong>edit or delete individual entries</strong> from the History page.
+                    </li>
+                    <li class="mb-1">You can <strong>permanently delete your account and all data</strong> from the <a
+                        hred="{{ url_for('sleep.goal') }}">Sleep Goal page</a>. This is immediate and irreversible.
+                    </li>
+                </ul>
+                
+                <div class="text-center">
+                    {% if session.get('user_id') %}
+                    <br>
+                    <a href="{{ url_for('sleep.dashboard') }}" class="btn btn-outline-secondary">⬅️ Back to
+                        dashboard</a>
+                    {% else %}
+                    <br>
+                    <a href="{{ url_for('auth.login') }}" class="btn btn-outline-secondary">⬅️Back to sign in</a>
+                    {% endif %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-{% endblock %}
