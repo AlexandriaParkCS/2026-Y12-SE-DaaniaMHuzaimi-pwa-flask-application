@@ -39,8 +39,10 @@ I   {{ form.wake_time(class="form-control", id="wake_time") }}
         <label for="quality" class="form-label">
             How did you sleep?
         </label>
-
-        {{ form.quality(class="form-select", id="quality") }}
+        
+        <div class="select-wrapper">
+            {{ form.quality(class="form-select", id="quality") }}
+        </div>
     </div>
 
     <div class="col-12">
@@ -49,7 +51,7 @@ I   {{ form.wake_time(class="form-control", id="wake_time") }}
     {{ form.notes(class="form-control", id="notes", rows="3",
         placeholder="Anything that affected your sleep ... ") }}
 
-        <div class="form-text text-white">Max 500 characters .</div>
+        <div class="form-text">Max 500 characters .</div>
     </div>
 
     <button type="submit" class="btn btn-primary w-100 mt-3">

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,18 +24,24 @@
     
     {% if session.get('user_id') %}
     <nav
-        class="navbar navbar-expand-lg navbar-dark bg-dark"
+        class="navbar navbar-expand-lg"
         aria-label="Main navigation"
     >
         <div class="container">
-            <a class="navbar-brand" href="/"> SleepTracker</a>
+            <a class="navbar-brand" href="/">🌙 SleepTracker</a>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="/dashboard">Dashboard</a>
                 <a class="nav-link" href="/log">Log Sleep</a>
                 <a class="nav-link" href="/history">History</a>
                 <a class="nav-link" href="/goal">Sleep Goal</a>
                 <a class="nav-link" href="/logout">Sign out</a>
-         </div>
+                <button
+                    class="theme-toggle ms-2"
+                    id="themeToggle"
+                    title="SwitchToggle"
+                    aria-label="Switch colour theme"
+                >&#9788;</button>
+            </div>
         </div>
     </nav>
     {% endif %}
@@ -59,7 +65,7 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="text-center py-3 text-white small"> <!--bottom page-->
+    <footer class="text-center py-3  small"> <!--bottom page-->
         SleepTracker © 2026 - Daania
         <a href="/privacy">Privacy Policy</a>
     </footer>

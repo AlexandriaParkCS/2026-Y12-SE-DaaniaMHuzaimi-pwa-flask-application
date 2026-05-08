@@ -5,7 +5,7 @@
 <h1 class="h3 mb-4">Dashboard</h1>
 
 {% if entries %}
-<table class="table table-hover align-middle mb-0 table-dark table-striped">
+<table class="table table-hover align-middle mb-0 table-striped">
   <thead>
     <tr>
       <th scope="col">Date</th>
@@ -39,11 +39,11 @@
 <br>
 {% if tip %}
 <div class="card p-3 mb-4">
-  <p class="fw-bold text-white">
+  <p class="fw-bold">
     Daily wellness tip</p>
   <p class="fst-italic mb-1">
     "{{ tip.quote }}"</p>
-  <small class="small text-white">
+  <small class="small">
     - {{ tip.author }}</small>
 </div>
 {% endif %}
