@@ -1,56 +1,107 @@
-# Secure Flask Bootstrap PWA Template
+# 🌙 SleepTracker
 
-This Flask template has been built from the ground up to be a secure Progressive Web App. It includes a secure form and Bootstrap sample components ready to be connected to a SQLite3 database. All minimum PWA standards have been integrated, and placeholder images have been provided for all the icon and image components.
+A Progressive Web Application (PWA) for tracking your sleep patterns, built with Python and Flask.
 
-## Dependencies
+**Created by:** Daania
+**Year 12 Software Engineering — Assessment Task 2, 2026**
 
-- Eclipse, VSCode or GitHub Codespaces (preconfigured for docker)
-- Python 3+
-- pip install Flask
-- pip install SQLite3
-- pip install bcrypt
-- pip install flask_wtf
+---
 
-## Secure Features
+## What it does
 
-- Strict Content Security Policy
-  - No inline `<script></script>`.
-  - Restricted `<iframe>` loading
-  - CORS JS blocked
-- HTML Languaged declared.
-- Meta character set declared.
-- [Bootstrap 5.3](https://getbootstrap.com/) components served local files.
-- CSRFProtect applied to form.
-- Form Pattern expression declared.
+SleepTracker lets you:
+- Log your sleep every night (bedtime, wake time, quality rating, notes)
+- See your sleep history and how long you slept each night
+- Set a nightly sleep goal and track your progress
+- Get a daily wellness quote on your dashboard
+- Switch between Dark, Light, and Purple themes
+- Install it on your phone like a real app (PWA)
 
-## To be implemented by developers
+---
 
-- Web content, [Bootstrap 5.3](https://getbootstrap.com/) ready
-- [SQLite](https://docs.python.org/3/library/sqlite3.html) database design and integration
-- Input sanitisation
-- Login, authentication or session management
-- Password encryption using [bcrypt](https://pypi.org/project/bcrypt/)
-- SSL Encryption
+## How to set it up
 
-## Privacy advice for developers
+### Step 1 — Download the project from Github
 
-- The app should have a privacy handling policy
-- Only data essential for the app should be collected
-- Users should be given the option to download or delete their data
-- Passwords should be encrypted, including a salt, before hashing
+### Step 2 — Install dependencies
 
-## Security advice for developers
 
-- All inputs should be sanitised before processing or storing
-- If including login, authentication and session management should be implemented
-- SSL Encryption and HTTPS should be implemented
-- Use Jinga2 components when passing variables to the frontend
-- Use query parameters for all SQL queries
+pip install -r requirements.txt
 
-## Content advice for developers
 
-- All templates are [Bootstrap 5.3](https://getbootstrap.com/) ready
-- [SQLite](https://docs.python.org/3/library/sqlite3.html) has been provided for database design
+### Step 3 — Run the app
 
-> [!TIP]
-> Developers should [monitor Bootstrap 5.3.3 for discovered vulnerabilities](https://security.snyk.io/package/npm/bootstrap) and patch or update as needed.
+
+cd src \
+python app.py
+
+
+### Step 4 — Open in your browser
+
+Go to:
+http://127.0.0.1:5000
+
+
+---
+
+## How to use the app
+
+### Creating an account
+1. Click **Register** on the login page
+2. Enter a username, email, and password (minimum 8 characters)
+3. Click **Register** — you'll be taken to the login page
+4. Sign in with your email and password
+
+### Logging sleep
+1. Click **Log Sleep** in the navigation bar
+2. Pick your **bedtime** and **wake time** using the date/time picker
+3. Rate how you slept (1 = Very poor → 5 = Excellent)
+4. Add any optional notes (e.g. "had coffee late", "stressed")
+5. Click **Save entry**
+6. You'll see a green message showing how many hours you slept
+
+### Viewing your dashboard
+- After logging in you land on the **Dashboard**
+- It shows your recent sleep entries in a table
+- A daily wellness quote appears at the bottom
+
+### Viewing your history
+- Click **History** to see all your past sleep entries
+- Use the Edit button to change an entry
+- Use the Delete button to remove an entry
+- Entries are sorted newest first, 10 per page
+
+### Setting a sleep goal
+1. Click **Sleep Goal** in the navigation bar
+2. Enter your target hours per night (e.g. 8)
+3. Click **Save Goal**
+4. Your goal progress will appear on the dashboard
+
+### Switching themes
+- Click the **☾ / ☀ / ♥** button in the top right of the navbar
+- Cycles between: Dark → Light → Purple → Dark
+- Your choice is saved and remembered next time
+
+### Deleting your account
+1. Go to **Sleep Goal**
+2. Scroll to the bottom — **Danger Zone**
+3. Click **Delete my account**
+4. Confirm the dialog
+5. Your account and ALL data are permanently removed
+
+---
+
+
+## Tech stack
+
+| Layer | Technology |
+|-------|-----------|
+| Backend | Python 3, Flask |
+| Database | SQLite3 via SQLAlchemy |
+| Forms | WTForms + Flask-WTF |
+| Passwords | bcrypt |
+| Frontend | Jinja2, Bootstrap 5.3, CSS |
+| PWA | Web App Manifest + Service Worker |
+| External API | ZenQuotes |
+
+---

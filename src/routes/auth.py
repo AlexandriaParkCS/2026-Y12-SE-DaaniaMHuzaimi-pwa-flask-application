@@ -75,6 +75,4 @@ def delete_account():
         db.session.commit()
     session.clear()
     flash('Account deleted.', 'info')
-    return redirect(url_for('auth.login'))
-                                
-          
+    return redirect(url_for('auth.login'))          
